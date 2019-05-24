@@ -1,0 +1,1 @@
+![Screenshot](https://github.com/roma0398/DSML_HW/tree/master/Spark/WordCounter.jpg)
