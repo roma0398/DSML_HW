@@ -1,0 +1,68 @@
+{
+  "paragraphs": [
+    {
+      "title": "",
+      "text": "val textFile1 \u003d sc.textFile(\"/home/caym/Downloads/Burgess Antony. A Clockwork Orange.txt\\\")\nval textFile2 \u003d sc.textFile(\"/home/caym/Downloads/bible.txt\\\")\nval reg \u003d\"\"\"[^a-zA-Z ]\"\"\".r\nval Orange \u003d textFile1.flatMap(x \u003d\u003e reg.replaceAllIn(x, \"\").toLowerCase().split(\" \"))\nval Bible \u003d textFile2.flatMap(x \u003d\u003e reg.replaceAllIn(x, \"\").toLowerCase().split(\" \"))\nval Bible_count \u003d Bible.map(word\u003d\u003e(word,1)).reduceByKey(_+_)\nval Orange_count \u003d Orange.map(word\u003d\u003e(word,1)).reduceByKey(_+_)\nOrange_count.collect().foreach(println)\n",
+      "user": "",
+      "dateUpdated": "2019-05-25 02:14:49.000",
+      "config": {
+        "selectedInterpreter": {},
+        "colWidth": 12.0,
+        "results": [],
+        "editorSetting": {}
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "",
+      "id": "20190525-021029_591303808",
+      "dateCreated": "2019-05-25 02:10:29.000",
+      "dateStarted": "2019-05-25 02:14:53.000",
+      "dateFinished": "2019-05-25 02:14:53.000",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 0
+    },
+    {
+      "title": "",
+      "text": "val result \u003d Orange_count.join(Bible_count).map(x \u003d\u003e (x._1 , x._2._1))\nresult.collect().foreach(println)",
+      "user": "",
+      "dateUpdated": "2019-05-25 02:14:47.000",
+      "config": {
+        "selectedInterpreter": {
+          "name": "spark",
+          "profile": "spark",
+          "isCustom": false,
+          "editorLanguage": "scala",
+          "className": "org.apache.zeppelin.spark.SparkInterpreter",
+          "isDefault": true
+        },
+        "colWidth": 12.0,
+        "results": [],
+        "editorSetting": {}
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "",
+      "id": "20190525-021445_1509636004",
+      "dateCreated": "2019-05-25 02:14:45.000",
+      "dateStarted": "2019-05-25 02:14:53.000",
+      "dateFinished": "2019-05-25 02:14:53.000",
+      "status": "READY",
+      "errorMessage": "",
+      "progressUpdateIntervalMs": 0
+    }
+  ],
+  "name": "Untitled Note",
+  "id": "d113cfaa9bfe4ab7b1a0b6159deee608",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {},
+  "info": {}
+}
